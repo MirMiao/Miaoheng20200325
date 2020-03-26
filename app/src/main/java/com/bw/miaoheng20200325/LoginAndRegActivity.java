@@ -57,6 +57,8 @@ public class LoginAndRegActivity extends BaseActivity<Presenter> implements ICon
          bt_login.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
+
+                 ProgressDialogUtil.showProgressDialog(LoginAndRegActivity.this);
                  //获取输入的内容
                  String phone = et_phone.getText().toString();
                  if(TextUtils.isEmpty(phone)){
@@ -91,9 +93,12 @@ public class LoginAndRegActivity extends BaseActivity<Presenter> implements ICon
         if (object instanceof LoginEntity) {
             Toast.makeText(this, ""+((LoginEntity) object).getMessage(), Toast.LENGTH_SHORT).show();
             if("0000".equals(((LoginEntity) object).getStatus())){
+
                 Intent intent = new Intent(LoginAndRegActivity.this,MainActivity.class);
                 intent.putExtra("headPic",((LoginEntity) object).getResult().getHeadPic());
                 startActivity(intent);
+                //隐藏对话框
+                ProgressDialogUtil.dismiss();
             }
         }
     }

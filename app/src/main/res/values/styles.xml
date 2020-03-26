@@ -7,5 +7,11 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <!--自定义耗时对话框-->
+     <style name="CustomProgressDialog" parent="Theme.AppCompat.Dialog">
+          <item name="android:backgroundDimEnabled">false</item>
+          <item name="android:windowBackground">@android:color/transparent</item>
+
+     </style>
 
 </resources>
