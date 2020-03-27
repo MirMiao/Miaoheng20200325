@@ -1,0 +1,16 @@
+3、简述Fresco的原理，在Android Studio中新建一个txt写即可（20分）
+   Fresco是强大的图片加载框架，
+   Fresco具有三级缓存
+   原理：Fresco通过网络或本地获取到图片的未处理的码，通过bitmap转换成图片，通过handler切换线程到ui界面展示图片，
+          通过io流的形式存储到本地
+
+4、简述Picasso、Glide、Fresco的区别，在Android Studio中新建一个txt写即可。（20分）
+  缓存策略不同
+  Picasso是缓存图片原有的大小，不会进行二次剪切
+  Glide是缓存图片最底层的大小，不会占用太多app的内存
+  Fresco是根据图片控件的高度和宽度，缓存和控件的高度和宽度一样的
+
+  Glide和Picasso相比
+  Glide缓存较快，Picasso缓存较慢
+
+  Fresco是大公司出品，后期更新迭代有保障
