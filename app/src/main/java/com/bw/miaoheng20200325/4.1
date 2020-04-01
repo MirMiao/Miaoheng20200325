@@ -1,0 +1,11 @@
+1.事件分发流程
+   从Activity层的dispatchEvent，返回false传递到viewGroup的dispatchEvent，viewGroup的dispatchEvent返回falase到Activity的onTouchEvent层，
+   viewGroup的dispatchEvent返回true传递到viewGroup的onIntercepetEvent，viewGroup的onIntercepetEvent返回true，返回到本层的onTouchEvent，
+   viewGroup的onIntercepetEvent返回false/super到下一层的dispatchEvent，viewGroup的onTouchEvent返回false/super到上一层的onTouchEvent，
+   View层的dispatchEvent返回false，到上一层的dispatchEvent，View层的dispatchEvent返回true，到本层的onTouchEvent，View层的onTouchEvent返回
+   true就在本层中执行，View层的onTouchEvent返回false/super，传到第上一层的onTouchEvent。
+2.解决事件冲突的思路
+   例如解决一个按钮的长按和单机事件
+
+   当主界面只有一个按钮时，同时给他设置了单机和长按事件，那么这就会引起事件冲突，怎么解决呢，就是我们可以在我们给这个按钮的长按事件里，返回一个true，
+   这样就不会引起事件冲突了，只能发生一个事件，这就是解决事件冲突的思路。
