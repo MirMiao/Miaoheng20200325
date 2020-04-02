@@ -44,4 +44,19 @@ public class Presenter extends BasePresenter<Model , IContract.IView> implements
             }
         });
     }
+
+    @Override
+    public void getHomeData() {
+        model.getHomeData(new IContract.IModel.ModelCallBack() {
+            @Override
+            public void seccess(Object object) {
+                getView().seccess(object);
+            }
+
+            @Override
+            public void failur(Throwable throwable) {
+                getView().failur(throwable);
+            }
+        });
+    }
 }

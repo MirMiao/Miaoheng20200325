@@ -12,6 +12,7 @@ public interface IContract {
     interface IModel extends IBaseModel{
         void login(String phone,String pwd,ModelCallBack modelCallBack);
         void reg(String phone,String pwd,ModelCallBack modelCallBack);
+        void getHomeData(ModelCallBack modelCallBack);
         interface ModelCallBack{
             void seccess(Object object);
             void failur(Throwable throwable);
@@ -24,5 +25,6 @@ public interface IContract {
     interface IPresenter{
         void login(String phone, String pwd);
         void reg(String phone, String pwd);
+        void getHomeData();
     }
 }

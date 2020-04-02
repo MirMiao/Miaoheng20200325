@@ -1,21 +1,19 @@
-package com.bw.miaoheng20200325;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.bw.miaoheng20200325.view;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bw.miaoheng20200325.R;
 import com.bw.miaoheng20200325.base.BaseActivity;
 import com.bw.miaoheng20200325.contract.IContract;
 import com.bw.miaoheng20200325.entity.LoginEntity;
 import com.bw.miaoheng20200325.entity.RegEntity;
 import com.bw.miaoheng20200325.presenter.Presenter;
+import com.bw.miaoheng20200325.util.ProgressDialogUtil;
 
 public class LoginAndRegActivity extends BaseActivity<Presenter> implements IContract.IView {
 

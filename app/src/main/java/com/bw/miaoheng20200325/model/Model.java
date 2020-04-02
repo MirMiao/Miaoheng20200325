@@ -1,8 +1,10 @@
 package com.bw.miaoheng20200325.model;
 
+import com.bw.miaoheng20200325.api.IGetDataHomeApiService;
 import com.bw.miaoheng20200325.api.ILoginApiService;
 import com.bw.miaoheng20200325.api.IRegApiService;
 import com.bw.miaoheng20200325.contract.IContract;
+import com.bw.miaoheng20200325.entity.HomeDataEntity;
 import com.bw.miaoheng20200325.entity.LoginEntity;
 import com.bw.miaoheng20200325.entity.RegEntity;
 import com.bw.miaoheng20200325.util.RetfofitUtil;
@@ -51,6 +53,25 @@ public class Model implements IContract.IModel {
                     @Override
                     public void accept(Throwable throwable) throws Exception {
                             modelCallBack.failur(throwable);
+                    }
+                });
+    }
+
+    @Override
+    public void getHomeData(final ModelCallBack modelCallBack) {
+        RetfofitUtil.getInstance().creatService(IGetDataHomeApiService.class)
+                .getHomeData()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<HomeDataEntity>() {
+                    @Override
+                    public void accept(HomeDataEntity homeDataEntity) throws Exception {
+                    modelCallBack.seccess(homeDataEntity);
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        modelCallBack.failur(throwable);
                     }
                 });
     }

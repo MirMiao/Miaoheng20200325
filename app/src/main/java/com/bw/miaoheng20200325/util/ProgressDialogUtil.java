@@ -1,4 +1,4 @@
-package com.bw.miaoheng20200325;
+package com.bw.miaoheng20200325.util;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -6,6 +6,8 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+
+import com.bw.miaoheng20200325.R;
 
 /**
  * 时间 :2020/3/26  13:50
@@ -17,7 +19,7 @@ public class ProgressDialogUtil {
     //弹出对话框
     public static void showProgressDialog(Context context){
         if(mAlertDialog==null){
-            mAlertDialog=new AlertDialog.Builder(context,R.style.CustomProgressDialog).create();
+            mAlertDialog=new AlertDialog.Builder(context, R.style.CustomProgressDialog).create();
         }
         View loadView= LayoutInflater.from(context).inflate(R.layout.custom_progress_dialog_view,null);
         mAlertDialog.setView(loadView,0,0,0,0);

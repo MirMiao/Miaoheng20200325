@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'org.greenrobot.greendao' // apply plugin
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -17,6 +17,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+}
+greendao {
+    schemaVersion 1
+    daoPackage 'com.bw.miaoheng20200325.greendao'
+    targetGenDir 'src/main/java'
 }
 
 dependencies {
@@ -44,4 +49,8 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
     //fresco
     implementation 'com.facebook.fresco:fresco:1.12.0'
+    //recycelrview，列表控件，和listview差不多，升级版
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    compile 'com.bigkoo:pickerview:2.1.0'
+    implementation 'org.greenrobot:greendao:3.2.2' // add library
 }
